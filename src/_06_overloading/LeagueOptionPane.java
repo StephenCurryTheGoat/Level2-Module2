@@ -1,5 +1,6 @@
 package _06_overloading;
 
+import java.awt.Color;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -24,12 +25,12 @@ public class LeagueOptionPane {
 		JFrame frame = new JFrame("Message");
 		JPanel panel = new JPanel();
 		frame.add(panel);
-		JLabel text = new JLabel("The league is the best");
+		JLabel text = new JLabel(message);
 		 text.setIcon(loadImage("league.png"));
 		frame.add(text);
 		frame.pack();
 		;
-		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// 2. Uncomment the line of code below. It sets the location of our frame to the center of the screen
 		frame.setLocationRelativeTo(null);
@@ -41,9 +42,35 @@ public class LeagueOptionPane {
 
 	// 4. Create another showMessageDialog() method that lets us also choose the Message and Title 
 	//    2 String parameters (one for the message and one for the title)
-	
+	public static void showMessageDialog(String message, String title) {
+		JFrame frame = new JFrame(title);
+		JPanel panel = new JPanel();
+		frame.add(panel);
+		JLabel text = new JLabel(message);
+		 text.setIcon(loadImage("league.png"));
+		frame.add(text);
+		frame.pack();
+		;
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+	}
+
 	// 5. Call this method in the Runner class
-	
+	public static void showMessageDialog(String message, String title, String image) {
+		JFrame frame = new JFrame(title);
+		JPanel panel = new JPanel();
+		frame.add(panel);
+		JLabel text = new JLabel(message);
+		 text.setIcon(loadImage(image));
+		frame.add(text);
+		frame.pack();
+		;
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+	}
+
 	
 	// 6. Create another showMessageDialog() method that lets us choose the Message, Title, and Image
 	//    3 String parameters (one for the message, one for the title, and one for the fileName)
@@ -54,7 +81,23 @@ public class LeagueOptionPane {
 		//	1. Create another showMessageDialog() method that lets us choose the Message, Title, Image, and Background Color
 		//     3 String parameters (one for the message, one for the title, and one for the fileName)
 		//	   1 Color parameter for the backgroundColor
-		//			
+		//			public static void showMessageDialog(String message, String title, String image) {
+	public static void showMessageDialog(String message, String title, String image, Color backgroundColor) {
+	JFrame frame = new JFrame(title);
+	JPanel panel = new JPanel();
+	frame.add(panel);
+	JLabel text = new JLabel(message);
+	 text.setIcon(loadImage(image));
+	panel.add(text);
+	frame.pack();
+	;
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.setLocationRelativeTo(null);
+	frame.setVisible(true);
+	panel.setBackground(backgroundColor);
+	panel.setOpaque(true);
+}
+
 		//	2. Change the return type of the 3rd showMessageDialog() method(the one right above) to JPanel
 		//	   Make sure to return your panel at the end of that method
 		//	

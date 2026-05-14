@@ -16,6 +16,8 @@ public class LeagueSnake extends PApplet {
     Segment snakeHead;
     int foodX;
     int foodY;
+    int direction = UP;
+    int snakeEater =0;
 
     
     /*
@@ -104,19 +106,19 @@ public class LeagueSnake extends PApplet {
     void move() {
         // Change the location of the Snake head based on the direction it is moving.
 
-        /*
+        
         if (direction == UP) {
             // Move head up
-            
+        snakeHead.x = UP;
         } else if (direction == DOWN) {
             // Move head down
-                
+                snakeHead.y=DOWN;
         } else if (direction == LEFT) {
-            
+            snakeHead.x = LEFT;
         } else if (direction == RIGHT) {
-            
+            snakeHead.x = RIGHT;
         }
-        */
+        
     }
 
     void checkBoundaries() {
@@ -127,7 +129,7 @@ public class LeagueSnake extends PApplet {
     void eat() {
         // When the snake eats the food, its tail should grow and more
         // food appear
-        
+        snakeEater++;
     }
 
     static public void main(String[] passedArgs) {

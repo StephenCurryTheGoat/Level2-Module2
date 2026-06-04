@@ -18,9 +18,9 @@ public class LeagueSnake extends PApplet {
     int foodX;
     int foodY;
     int direction = UP;
-    int snakeEater =0;
+    int snakeEater = 0;
 ArrayList<Segment> tail = new ArrayList<>();
-    
+
     /*
      * Setup methods
      * 
@@ -75,7 +75,7 @@ ArrayList<Segment> tail = new ArrayList<>();
 	void drawTail() {
         // Draw each segment of the tail
         for(int i =0; i <= 10; i++) {
-        	rect(10,10, snakeHead.x, snakeHead.y);
+        	rect(snakeHead.x,snakeHead.y, 10,10);
         }
     }
 
@@ -91,14 +91,27 @@ ArrayList<Segment> tail = new ArrayList<>();
         // This produces the illusion of the snake tail moving.
 checkTailCollision();
 drawTail();
-Segment addTail = new Segment(200, 100);
-
-    }
+Segment addTail = new Segment(snakeHead.x, snakeHead.y);
+tail.add(addTail);
+tail.remove(0);
+}
 
     void checkTailCollision() {
         // If the snake crosses its own tail, shrink the tail back to one segment
-        //if(snakeHead)
-    }
+        for(int i = 0; i < tail.size(); i++) {
+        Segment removeTail = new Segment(snakeHead.x, snakeHead.y);
+        	
+}
+        	if(snakeHead.x == tail.size() && snakeHead.y == tail.size() ) {
+        		tail.clear();
+        		snakeEater = 1;
+        	}
+        	}
+       
+        
+        
+        		
+    
 
     /*
      * Control methods
@@ -173,10 +186,13 @@ Segment addTail = new Segment(200, 100);
         if(snakeHead.x == foodX && snakeHead.y == foodY) {
         	snakeEater++;
         	dropFood();
+   Segment newTail = new Segment(snakeHead.x, snakeHead.y);
+   tail.add(newTail);
+        	}
         	
         }
     	
-    }
+    
 
     static public void main(String[] passedArgs) {
         PApplet.main(LeagueSnake.class.getName());
